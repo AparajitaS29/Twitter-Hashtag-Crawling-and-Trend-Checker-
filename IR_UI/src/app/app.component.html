@@ -1,0 +1,180 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<style type="text/css">
+  
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+li {
+  display: block;
+  float: right;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+button a {}
+
+.google-logo {
+  position: absolute;
+  left: 275px;
+  margin: 10em 32.5em;
+}
+
+.feeling-lucky {
+  position: absolute;
+  margin: 20em 32.5em;
+  width: 400px;
+}
+
+#searchbar {
+  position: absolute;
+  top: 260px;
+  left: 650px;
+  width: 580px;
+  height: 30px;
+  border: 1px solid #cdcdcd;
+}
+
+#search_button {
+  position: absolute;
+  top: 350px;
+  left: 775px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+#sentiment_analysis {
+  position: absolute;
+  top: 310px;
+  left: 825px;
+  
+}
+#sentiment_analysis2 {
+  position: absolute;
+  top: 310px;
+  left: 845px;
+  
+}
+
+
+
+#lucky_button {
+  position: absolute;
+  top: 350px;
+  left: 905px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  margin: : 20em;
+}
+
+.footer-link {
+  margin-left: 10px;
+  color: #000;
+}
+
+.move-left {
+  float: left;
+}
+
+.move-right {
+  float: right;
+}
+
+</style>
+<nav class="header">
+  <div class="col-xs-8">
+    <ul>
+      <li><a href="#"><i class="fa fa-2x fa-user-circle-o" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-2x fa-bell" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-2x fa-bars" aria-hidden="true"></i></a></li>
+      
+    </ul>
+  </div>
+</nav>
+<div class="google-logo">
+  <img src="data:image/png;base64,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" height="100px" width="250px" alt="google-logo" title="google-logo" style="
+    padding-left: 50px;
+    border-left-width: 20px;
+">
+</div>
+<div>
+  <input type="text" name="searchBar" id="searchbar" placeholder="Search Google or Type URL">
+
+  <input type="button" value="Lucene Search" id="search_button" onclick="search()">
+
+</div>
+<input type="button" value="Hadoop Search" id="lucky_button">
+
+
+</br>
+<input type="checkbox" id="sentiment_analysis" name="Sentiment Analysis" value="Sentiment Analysis">
+<label for="sentiment_analysis" id="sentiment_analysis2"> Sentiment Analysis </label><br>
+
+</div>
+<div class="footer">
+  <div class='container-fluid'>
+    <div class='col-md-4'>
+      <a href="#" class='footer-link move-left'>Advertising</a>
+      <a href="#" class='footer-link move-left'>Business</a>
+    </div>
+    <div class='col-md-8'>
+      <a href="#" class='footer-link move-right'>Settings</a>
+      <a href="#" class='footer-link move-right'>Terms</a>
+      <a href="#" class='footer-link move-right'>Privacy</a>
+    </div>
+  </div>
+
+</div>
+<script>
+  function search(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'http://127.0.0.1:5000/search');
+    xhr.setRequestHeader("content-type", "application/json");
+    var data = JSON.stringify({"search":document.getElementById("searchbar").value});
+    xhr.send(data);
+    window.open('http://127.0.0.1:5000/out')
+  }
+
+</script>
+
+

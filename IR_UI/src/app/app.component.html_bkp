@@ -1,0 +1,17 @@
+form>
+  <div>
+    <input type="radio" id="contactChoice1"
+     name="Lucene" value="Lucene">
+    <label for="contactChoice1">Lucene</label>
+
+    <input type="radio" id="contactChoice2"
+     name="Hadoop" value="Hadoop">
+    <label for="contactChoice2">Hadoop</label>
+
+
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
